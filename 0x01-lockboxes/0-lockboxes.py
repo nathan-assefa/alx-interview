@@ -3,6 +3,7 @@
 
 
 def canUnlockAll(boxes):
+    """ return True if all the boxes have keys """
     # Number of boxes
     n = len(boxes)
 
