@@ -46,7 +46,7 @@ def main():
                     print_statistics(status_counts, total_size)
                     line_counter = 0
 
-    except KeyboardInterrupt:
+    except Exception:
         pass
 
 main()
