@@ -11,6 +11,7 @@ def print_statistics(status_counts, total_size):
             print(f"{code}: {count}")
 
 def main():
+    ''' analysing the log metrics '''
     total_size = 0
     line_counter = 0
     status_counts = {
