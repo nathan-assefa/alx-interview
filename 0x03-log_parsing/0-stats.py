@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
+
 import sys
+
 
 def print_statistics(status_counts, total_size):
     ''' Printig the statistics '''
