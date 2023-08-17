@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-
 import sys
+''' Anayzing the log entires '''
+
 
 def print_statistics(status_counts, total_size):
+    ''' Printig the statistics '''
     print(f"File size: {total_size}")
     for code, count in sorted(status_counts.items()):
         if count != 0:
