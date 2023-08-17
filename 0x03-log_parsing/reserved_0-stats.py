@@ -47,5 +47,4 @@ def main():
     finally:
         print_statistics(status_counts, total_size)
 
-if __name__ == "__main__":
-    main()
+main()

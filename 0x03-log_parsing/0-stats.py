@@ -46,5 +46,4 @@ def main():
     finally:
         print_statistics(dict_sc, total_file_size)
 
-if __name__ == '__main__':
-    main()
+main()
