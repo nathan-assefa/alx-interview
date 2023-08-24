@@ -1,34 +1,29 @@
 #!/usr/bin/python3
-''' utf-8 validation '''
+""" utf-8 validation """
 
 
 def validUTF8(data):
-    ''' validatin the dataset '''
-    # Initializing a variable to keep track of the
-    # + number of continuation bytes expected
+    """
+    Validate UTF-8 encoding
+    """
+
     num_continuation_bytes = 0
 
-    # Iterate through each integer in the data list
-    for byte in data:
-        # Check if it's a continuation byte
-        if num_continuation_bytes > 0:
-            # Check if the byte starts with the pattern "10"
-            if (byte >> 6) == 0b10:
-                num_continuation_bytes -= 1
-            else:
+    for num in data:
+        # Convert to 8-bit binary representation
+        binary_rep = f"{num:08b}"[-8:]
+        if num_continuation_bytes == 0:
+            for bit in binary_rep:
+                if bit == "0":
+                    break
+                num_continuation_bytes += 1
+            if num_continuation_bytes == 0:
+                continue
+            if num_continuation_bytes == 1 or num_continuation_bytes > 4:
                 return False
         else:
-            # Check if it's a single-byte character (ASCII)
-            if (byte >> 7) == 0:
-                continue
-            # Check for multi-byte characters
-            elif (byte >> 5) == 0b110:
-                num_continuation_bytes = 1
-            elif (byte >> 4) == 0b1110:
-                num_continuation_bytes = 2
-            elif (byte >> 3) == 0b11110:
-                num_continuation_bytes = 3
-            else:
+            if not (binary_rep[0] == "1" and binary_rep[1] == "0"):
                 return False
+        num_continuation_bytes -= 1
 
     return num_continuation_bytes == 0
