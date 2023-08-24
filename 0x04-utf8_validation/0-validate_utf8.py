@@ -3,7 +3,9 @@
 
 
 def validUTF8(data):
-    # Initialize a variable to keep track of the number of continuation bytes expected
+    ''' validatin the dataset '''
+    # Initializing a variable to keep track of the
+    # + number of continuation bytes expected
     num_continuation_bytes = 0
 
     # Iterate through each integer in the data list
