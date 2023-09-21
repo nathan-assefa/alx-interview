@@ -1,9 +1,16 @@
+#!/usr/bin/python3
+""" Making changes """
+
+
 def makeChange(coins, total):
+    """
+    determine the fewest number of coins needed to meet a given amount total
+    """
     if total < 0:
         return -1
 
     # Initialize a table to store the minimum number of coins for each amount
-    dp = [float('inf')] * (total + 1)
+    dp = [float("inf")] * (total + 1)
     dp[0] = 0
 
     # Calculate the minimum number of coins for each amount from 1 to total
@@ -12,7 +19,7 @@ def makeChange(coins, total):
             if amount >= coin:
                 dp[amount] = min(dp[amount], dp[amount - coin] + 1)
 
-    if dp[total] == float('inf'):
+    if dp[total] == float("inf"):
         return -1
     else:
         return dp[total]
